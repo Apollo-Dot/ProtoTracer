@@ -3,16 +3,16 @@
 #include "Animation.h"
 #include "KeyFrameTrack.h"
 #include "EasyEaseAnimator.h"
-#include "..\Objects\Background.h"
-#include "..\Render\Scene.h"
-#include "..\Signals\FunctionGenerator.h"
+#include "../Objects/Background.h"
+#include "../Render/Scene.h"
+#include "../Signals/FunctionGenerator.h"
 
-#include "..\Materials\Animated\RainbowNoise2.h"
-#include "..\Materials\Animated\RainbowSpiral.h"
+#include "../Materials/Animated/RainbowNoise2.h"
+#include "../Materials/Animated/RainbowSpiral.h"
 
-#include "..\Materials\MaterialAnimator.h"
+#include "../Materials/MaterialAnimator.h"
 
-#include "..\Materials\Clock.h"
+#include "../Materials/Clock.h"
 
 class ESP32Clock : public Animation<1> {
 private:

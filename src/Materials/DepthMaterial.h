@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Material.h"
-#include "..\Math\Vector2D.h"
+#include "../Math/Vector2D.h"
 #include "GradientMaterial.h"
 
 //Converts gif to RGB XY pixel matrix

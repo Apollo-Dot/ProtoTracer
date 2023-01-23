@@ -82,10 +82,10 @@ public:
     /*
     void PrintStats() {
         int totalCount = 0;
-        printf("total inserts: %d\n", count);
-        printf("node stats: \n");
+        printf("total inserts: %d/n", count);
+        printf("node stats: /n");
         root.PrintStats(totalCount, bbox);
-        printf("total entities: %d \n", totalCount);
+        printf("total entities: %d /n", totalCount);
     }
     */
 

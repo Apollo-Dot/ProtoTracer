@@ -5,8 +5,8 @@
 //#define GAMMABACK
 //#define HUB75
 //#define HUB75Split
-//#define WS35
-#define ESP32HUB75
+#define WS35
+//#define ESP32HUB75
 
 #define PRINTINFO
 
@@ -16,43 +16,43 @@ uint8_t maxBrightness = 50;
 uint8_t maxAccentBrightness = 100;
 
 #ifdef ALPHARIGHT
-#include "Controllers\ProtoDRController.h"
-#include "Animation\ProtoDRMorphAnimation.h"
+#include "Controllers/ProtoDRController.h"
+#include "Animation/ProtoDRMorphAnimation.h"
 ProtoDRController controller = ProtoDRController(maxBrightness, ProtoDRController::RIGHT);
 #elif defined(ALPHALEFT)
-#include "Controllers\ProtoDRController.h"
-#include "Animation\ProtoDRMorphAnimation.h"
+#include "Controllers/ProtoDRController.h"
+#include "Animation/ProtoDRMorphAnimation.h"
 ProtoDRController controller = ProtoDRController(maxBrightness, ProtoDRController::LEFT);
 #elif defined(BETAWS35)
-#include "Controllers\BetaProtoController.h"
-#include "Animation\ProtoV3Animation.h"
+#include "Controllers/BetaProtoController.h"
+#include "Animation/ProtoV3Animation.h"
 BetaProtoController controller = BetaProtoController(maxBrightness);
 #elif defined(GAMMAFRONT)
-#include "Controllers\GammaControllerFront.h"
-#include "Animation\GammaAnimation.h"
+#include "Controllers/GammaControllerFront.h"
+#include "Animation/GammaAnimation.h"
 GammaControllerFront controller = GammaControllerFront(maxBrightness);
 #elif defined(GAMMABACK)
-#include "Controllers\GammaControllerBack.h"
-#include "Animation\GammaAnimation.h"
+#include "Controllers/GammaControllerBack.h"
+#include "Animation/GammaAnimation.h"
 GammaControllerBack controller = GammaControllerBack(maxBrightness);
 #elif defined(HUB75)
-#include "Controllers\SmartMatrixHUB75.h"
-#include "Animation\ProtogenHUB75Animation.h"
+#include "Controllers/SmartMatrixHUB75.h"
+#include "Animation/ProtogenHUB75Animation.h"
 SmartMatrixHUB75 controller = SmartMatrixHUB75(maxBrightness, maxAccentBrightness);
 ProtogenHUB75Animation animation = ProtogenHUB75Animation();
 #elif defined(HUB75Split)
-#include "Controllers\SmartMatrixHUB75Split.h"
-#include "Animation\ProtogenHUB75AnimationSplit.h"
+#include "Controllers/SmartMatrixHUB75Split.h"
+#include "Animation/ProtogenHUB75AnimationSplit.h"
 SmartMatrixHUB75Split controller = SmartMatrixHUB75Split(maxBrightness, maxAccentBrightness);
 ProtogenHUB75AnimationSplit animation = ProtogenHUB75AnimationSplit();
 #elif defined(WS35)
-#include "Controllers\KaiborgV1D1Controller.h"
-#include "Animation\ProtogenKitFaceAnimation.h"
+#include "Controllers/KaiborgV1D1Controller.h"
+#include "Animation/ProtogenKitFaceAnimation.h"
 KaiborgV1D1Controller controller = KaiborgV1D1Controller(maxBrightness);
 ProtogenKitFaceAnimation animation = ProtogenKitFaceAnimation();
 #elif defined(ESP32HUB75)
-#include "Controllers\ESP32DevKitV1.h"
-#include "Animation\ESP32Clock.h"
+#include "Controllers/ESP32DevKitV1.h"
+#include "Animation/ESP32Clock.h"
 
 ESP32DevKitV1 controller = ESP32DevKitV1(maxBrightness);
 ESP32Clock animation = ESP32Clock();
@@ -60,23 +60,23 @@ ESP32Clock animation = ESP32Clock();
 #else
 //Define your own here
 //--------------- ANIMATIONS ---------------
-//#include "Animation\Test\FullScreenAnimation.h"
-//#include "Animation\VectorFieldAnimation.h"
-//#include "Animation\CoelaBonkAnimation.h"
-//#include "Animation\SpyroAnimation.h"
-//#include "Animation\SpyroRotateAnimation.h"
-#include "Animation\Commissions\AphoriAnimation.h"
+//#include "Animation/Test/FullScreenAnimation.h"
+//#include "Animation/VectorFieldAnimation.h"
+//#include "Animation/CoelaBonkAnimation.h"
+//#include "Animation/SpyroAnimation.h"
+//#include "Animation/SpyroRotateAnimation.h"
+#include "Animation/ProtogenKitFaceAnimation.h"
 
 //--------------- CONTROLLERS ---------------
-//#include "Controllers\KaiborgV1Controller.h"
-//#include "Controllers\KaiborgV1D1Controller.h"
-//#include "Controllers\ProtoDRController.h"
-#include "Controllers\SmartMatrixHUB75.h"
-//#include "Controllers\SmartMatrixHUB75Split.h"
-#define HUB75
+//#include "Controllers/KaiborgV1Controller.h"
+#include "Controllers/KaiborgV1D1Controller.h"
+//#include "Controllers/ProtoDRController.h"
+//#include "Controllers/SmartMatrixHUB75.h"
+//#include "Controllers/SmartMatrixHUB75Split.h"
+//#define HUB75
 
-SmartMatrixHUB75 controller = SmartMatrixHUB75(maxBrightness, maxAccentBrightness);
-AphoriAnimation animation = AphoriAnimation();
+KaiborgV1D1Controller controller = KaiborgV1D1Controller(maxBrightness);
+ProtogenKitFaceAnimation animation = ProtogenKitFaceAnimation();
 
 
 #endif
@@ -99,7 +99,7 @@ float FreeMem(){
 
 void setup() {
     Serial.begin(115200);
-    Serial.println("\nStarting...");
+    Serial.println("/nStarting...");
 
     controller.Initialize();
 }

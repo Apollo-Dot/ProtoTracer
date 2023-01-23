@@ -3,24 +3,24 @@
 #include "Animation.h"
 #include "KeyFrameTrack.h"
 #include "EasyEaseAnimator.h"
-#include "..\Objects\Background.h"
-#include "..\Morph\NukudeFace.h"
-#include "..\Render\Scene.h"
-#include "..\Signals\FunctionGenerator.h"
-#include "..\Menu\Menu.h"
-#include "..\Sensors\APDS9960.h"
+#include "../Objects/Background.h"
+#include "../Morph/NukudeFace.h"
+#include "../Render/Scene.h"
+#include "../Signals/FunctionGenerator.h"
+#include "../Menu/SingleButtonMenu.h"
+#include "../Sensors/APDS9960.h"
 
-#include "..\Materials\Animated\SpectrumAnalyzer.h"
-#include "..\Materials\Animated\RainbowNoise.h"
-#include "..\Materials\Animated\RainbowSpiral.h"
+#include "../Materials/Animated/SpectrumAnalyzer.h"
+#include "../Materials/Animated/RainbowNoise.h"
+#include "../Materials/Animated/RainbowSpiral.h"
 
-#include "..\Materials\MaterialAnimator.h"
+#include "../Materials/MaterialAnimator.h"
 
-#include "AnimationTracks\BlinkTrack.h"
+#include "AnimationTracks/BlinkTrack.h"
 
-#include "..\Signals\FFTVoiceDetection.h"
+#include "../Signals/FFTVoiceDetection.h"
 
-#include "..\Sensors\MicrophoneFourier_MAX9814.h"
+#include "../Sensors/MicrophoneFourier_MAX9814.h"
 
 class ProtogenKitFaceAnimation : public Animation<2> {
 private:

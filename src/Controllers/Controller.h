@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Render\Camera.h"
+#include "../Render/Camera.h"
 
 class Controller {
 private:

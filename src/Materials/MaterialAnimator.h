@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Animation\EasyEaseAnimator.h"
+#include "../Animation/EasyEaseAnimator.h"
 #include "CombineMaterial.h"
 #include "Material.h"
 

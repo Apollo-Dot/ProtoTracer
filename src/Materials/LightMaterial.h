@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Material.h"
-#include "..\Math\Vector2D.h"
-#include "..\Render\Light.h"
+#include "../Math/Vector2D.h"
+#include "../Render/Light.h"
 
 //Converts gif to RGB XY pixel matrix
 class LightMaterial : public Material {

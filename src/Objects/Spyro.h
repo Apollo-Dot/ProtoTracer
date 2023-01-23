@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Materials\UVMap.h"
+#include "../Materials/UVMap.h"
 
 class SpyroTex : public UVMap{
 private:
@@ -19,8 +19,8 @@ const uint8_t SpyroTex::rgbMemory[] PROGMEM = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 const uint8_t SpyroTex::rgbColors[] PROGMEM = {97,89,99,255,0,255,234,234,230,154,104,35,146,148,150,75,55,99,18,15,19,94,44,32,217,168,88,0,0,0,151,113,95,161,140,110,109,110,134,107,78,39,205,24,57,137,55,53};
 
 
-#include "..\Render\Object3D.h"
-#include "..\Materials\SimpleMaterial.h"
+#include "../Render/Object3D.h"
+#include "../Materials/SimpleMaterial.h"
 
 class Spyro{
 private:

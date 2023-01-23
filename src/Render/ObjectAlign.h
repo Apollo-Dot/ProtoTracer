@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Math\Plane.h"
+#include "../Math/Plane.h"
 #include "Object3D.h"
 
 class ObjectAlign{

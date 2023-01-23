@@ -1,7 +1,7 @@
 #pragma once
 
-#include "..\Materials\GradientMaterial.h"
-#include "..\Math\Vector3D.h"
+#include "../Materials/GradientMaterial.h"
+#include "../Math/Vector3D.h"
 
 template<size_t colors>
 class SimplexNoise : public Material{

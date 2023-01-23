@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Materials\UVMap.h"
+#include "../Materials/UVMap.h"
 
 class PikachuTex : public UVMap{
 private:
@@ -19,8 +19,8 @@ const uint8_t PikachuTex::rgbMemory[] PROGMEM = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 const uint8_t PikachuTex::rgbColors[] PROGMEM = {244,222,92,183,159,31,203,180,51,101,77,50,35,34,34,216,193,62,224,103,77,252,240,131,210,96,54,235,149,98,100,94,77,162,105,51,169,152,76,66,61,42,237,237,234,138,111,71};
 
 
-#include "..\Render\Object3D.h"
-#include "..\Materials\SimpleMaterial.h"
+#include "../Render/Object3D.h"
+#include "../Materials/SimpleMaterial.h"
 
 class Pikachu{
 private:

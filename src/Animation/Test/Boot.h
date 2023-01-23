@@ -1,9 +1,9 @@
 #pragma once
 
-#include "..\Render\Light.h"
-#include "..\Render\Object3D.h"
-#include "..\Render\TriangleGroupDeformer.h"
-#include "..\Flash\BootObjs.h"
+#include "../Render/Light.h"
+#include "../Render/Object3D.h"
+#include "../Render/TriangleGroupDeformer.h"
+#include "../Flash/BootObjs.h"
 #include "Animation.h"
 
 class Boot : public Animation {

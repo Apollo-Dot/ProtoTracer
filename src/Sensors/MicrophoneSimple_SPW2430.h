@@ -1,7 +1,7 @@
 #include <Arduino.h>
-#include "..\Math\Mathematics.h"
-#include "..\Filter\KalmanFilter.h"
-#include "..\Filter\MinFilter.h"
+#include "../Math/Mathematics.h"
+#include "../Filter/KalmanFilter.h"
+#include "../Filter/MinFilter.h"
 
 class MicrophoneSimple{
 private:
@@ -37,13 +37,13 @@ public:
         
         /*
         Serial.print(read);
-        Serial.print('\t');
+        Serial.print('/t');
         Serial.print(amplitude);
-        Serial.print('\t');
+        Serial.print('/t');
         Serial.print(normalized);
-        Serial.print('\t');
+        Serial.print('/t');
         Serial.print(minimum);
-        Serial.print('\t');
+        Serial.print('/t');
         Serial.println(truncate * 100.0f);
         */
        

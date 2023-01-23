@@ -1,7 +1,7 @@
 #pragma once
 
-#include "..\Math\Quaternion.h"
-#include "..\Math\Vector3D.h"
+#include "../Math/Quaternion.h"
+#include "../Math/Vector3D.h"
 
 class Triangle3D {
 private:

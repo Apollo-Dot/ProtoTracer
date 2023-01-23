@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Math\Vector2D.h"
+#include "../Math/Vector2D.h"
 
 class Shape {
 protected:

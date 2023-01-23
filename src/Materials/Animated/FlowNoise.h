@@ -1,9 +1,9 @@
 #pragma once
 
 #include "AnimatedMaterial.h"
-#include "..\..\Signals\FunctionGenerator.h"
-#include "..\..\Materials\GradientMaterial.h"
-#include "..\..\Materials\SimplexNoise.h"
+#include "../../Signals/FunctionGenerator.h"
+#include "../../Materials/GradientMaterial.h"
+#include "../../Materials/SimplexNoise.h"
 
 class FlowNoise : public AnimatedMaterial{
 private:

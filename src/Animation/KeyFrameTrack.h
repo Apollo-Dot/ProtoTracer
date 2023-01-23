@@ -3,7 +3,7 @@
 #include <Arduino.h>
 #include <float.h>
 #include "KeyFrame.h"
-#include "..\Math\Mathematics.h"
+#include "../Math/Mathematics.h"
 
 class KeyFrameInterpolation{
 public:

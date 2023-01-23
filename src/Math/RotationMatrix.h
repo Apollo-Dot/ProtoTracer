@@ -186,7 +186,7 @@ public:
 		String y = YAxis.ToString();
 		String z = ZAxis.ToString();
 
-		return x + "\n" + y + "\n" + z + "\n";
+		return x + "/n" + y + "/n" + z + "/n";
 	}
 
 	RotationMatrix operator =(RotationMatrix rM) {

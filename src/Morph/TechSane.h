@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Arduino.h"
-#include "..\Math\Rotation.h"
-#include "..\Materials\SimpleMaterial.h"
-#include "..\Render\IndexGroup.h"
-#include "..\Render\Object3D.h"
+#include "../Math/Rotation.h"
+#include "../Materials/SimpleMaterial.h"
+#include "../Render/IndexGroup.h"
+#include "../Render/Object3D.h"
 
 class TechSane{
 public:

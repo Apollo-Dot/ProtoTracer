@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Materials\UVMap.h"
+#include "../Materials/UVMap.h"
 
 class ArtisansTex : public UVMap{
 private:
@@ -19,8 +19,8 @@ const uint8_t ArtisansTex::rgbMemory[] PROGMEM = {12,12,12,12,12,12,12,12,12,12,
 const uint8_t ArtisansTex::rgbColors[] PROGMEM = {175,182,168,160,154,148,141,156,151,141,140,135,137,132,133,82,132,98,130,123,127,60,123,70,119,112,115,105,109,113,105,95,95,85,102,120,43,97,52,62,79,61,60,55,57,0,0,0};
 
 
-#include "..\Render\Object3D.h"
-#include "..\Materials\SimpleMaterial.h"
+#include "../Render/Object3D.h"
+#include "../Materials/SimpleMaterial.h"
 
 class Artisans{
 private:

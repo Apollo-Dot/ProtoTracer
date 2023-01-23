@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Materials\UVMap.h"
+#include "../Materials/UVMap.h"
 
 class RocksTex : public UVMap{
 private:
@@ -19,8 +19,8 @@ const uint8_t RocksTex::rgbMemory[] PROGMEM = {8,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6
 const uint8_t RocksTex::rgbColors[] PROGMEM = {193,159,85,139,127,2,148,114,77,96,107,27,95,105,28,112,97,16,111,92,0,84,99,25,120,76,33,84,77,1,79,88,18,67,62,0,87,40,11,61,62,7,46,41,2,46,16,4};
 
 
-#include "..\Render\Object3D.h"
-#include "..\Materials\SimpleMaterial.h"
+#include "../Render/Object3D.h"
+#include "../Materials/SimpleMaterial.h"
 
 class Rocks{
 private:

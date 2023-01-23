@@ -2,10 +2,10 @@
 
 #include "Arduino.h"
 #include "GradientMaterial.h"
-#include "..\Math\Vector2D.h"
-#include "..\Render\Scene.h"
-#include "..\Render\Triangle2D.h"
-#include "..\Render\PixelGroup.h"
+#include "../Math/Vector2D.h"
+#include "../Render/Scene.h"
+#include "../Render/Triangle2D.h"
+#include "../Render/PixelGroup.h"
 
 class VectorField2D : public Material{
 private:

@@ -4,11 +4,11 @@
 //
 #pragma once
 
-#include "..\Filter\RunningAverageFilter.h"
-#include "..\Filter\PeakDetection.h"
-#include "..\Render\IndexGroup.h"
-#include "..\Render\Triangle2D.h"
-#include "..\Math\Vector2D.h"
+#include "../Filter/RunningAverageFilter.h"
+#include "../Filter/PeakDetection.h"
+#include "../Render/IndexGroup.h"
+#include "../Render/Triangle2D.h"
+#include "../Math/Vector2D.h"
 
 template <size_t peakCount>
 class FFTVoiceDetection{

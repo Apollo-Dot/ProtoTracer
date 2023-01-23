@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\..\Materials\Material.h"
+#include "../../Materials/Material.h"
 
 class AnimatedMaterial : public Material{
 public:

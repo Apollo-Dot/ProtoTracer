@@ -1,8 +1,8 @@
 #pragma once
 
-#include "..\Material.h"
-#include "..\GradientMaterial.h"
-#include "..\..\Controls\BouncePhysics.h"
+#include "../Material.h"
+#include "../GradientMaterial.h"
+#include "../../Controls/BouncePhysics.h"
 
 class AudioReactiveGradient : public Material {
 private:

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "..\Math\Mathematics.h"
-#include "..\Render\TriangleGroup.h"
+#include "../Math/Mathematics.h"
+#include "../Render/TriangleGroup.h"
 
 class Morph{
 private:
@@ -22,7 +22,7 @@ public:
     void PrintMorphVertices(){
         for(int i = 0; i < count; i++){
             Serial.print(vertices[i].ToString());
-            Serial.print("\t");
+            Serial.print("/t");
         }
     }
 

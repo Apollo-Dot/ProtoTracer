@@ -1,7 +1,7 @@
 #pragma once
 
-#include "..\Render\Object3D.h"
-#include "..\Materials\SimpleMaterial.h"
+#include "../Render/Object3D.h"
+#include "../Materials/SimpleMaterial.h"
 
 class Cube{
 private:

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Material.h"
-#include "..\Math\Mathematics.h"
-#include "..\Math\Vector2D.h"
+#include "../Math/Mathematics.h"
+#include "../Math/Vector2D.h"
 
 template<size_t colorCount>
 class GradientMaterial : public Material {

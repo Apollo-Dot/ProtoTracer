@@ -1,8 +1,8 @@
 #pragma once
 
-#include "..\Render\Object3D.h"
-#include "..\Math\Rotation.h"
-#include "..\Math\Vector3D.h"
+#include "../Render/Object3D.h"
+#include "../Math/Rotation.h"
+#include "../Math/Vector3D.h"
 
 class BoundarySphere{
 private:

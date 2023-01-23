@@ -1,7 +1,7 @@
 #pragma once
 
-#include "..\Materials\Material.h"
-#include "..\Math\Vector2D.h"
+#include "../Materials/Material.h"
+#include "../Math/Vector2D.h"
 
 class Image : public Material{
 public:

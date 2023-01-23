@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
-#include "..\Math\Mathematics.h"
+#include "../Math/Mathematics.h"
 
 template <size_t sampleSize>
 class PeakDetection{

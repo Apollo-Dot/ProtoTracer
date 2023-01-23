@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SerialTransfer.h>
-#include "..\Math\Vector2D.h"
+#include "../Math/Vector2D.h"
 
 class SerialSync{
 private:

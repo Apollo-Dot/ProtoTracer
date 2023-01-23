@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Materials\UVMap.h"
+#include "../Materials/UVMap.h"
 
 class FoxTex : public UVMap{
 private:
@@ -19,8 +19,8 @@ const uint8_t FoxTex::rgbMemory[] PROGMEM = {15,9,9,9,9,15,1,1,3,3,3,3,1,1,2,7,7
 const uint8_t FoxTex::rgbColors[] PROGMEM = {0,0,0,204,105,32,176,81,34,226,124,33,213,182,159,231,143,65,142,63,36,180,143,131,249,244,244,6,4,14,231,217,211,86,63,52,0,0,0,0,0,0,0,0,0,0,0,0};
 
 
-#include "..\Render\Object3D.h"
-#include "..\Materials\SimpleMaterial.h"
+#include "../Render/Object3D.h"
+#include "../Materials/SimpleMaterial.h"
 
 class Fox{
 private:

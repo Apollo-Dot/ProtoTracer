@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Material.h"
-#include "..\Math\Mathematics.h"
-#include "..\Math\Vector2D.h"
-#include "..\Math\Rotation.h"
+#include "../Math/Mathematics.h"
+#include "../Math/Vector2D.h"
+#include "../Math/Rotation.h"
 
 class SpiralMaterial : public Material {
 private:

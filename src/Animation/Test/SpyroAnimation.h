@@ -1,10 +1,10 @@
 #pragma once
 
 #include "Animation.h"
-#include "..\Math\FunctionGenerator.h"
-#include "..\Objects\Spyro.h"
-#include "..\Materials\NormalMaterial.h"
-#include "..\Render\ObjectDeformer.h"
+#include "../Math/FunctionGenerator.h"
+#include "../Objects/Spyro.h"
+#include "../Materials/NormalMaterial.h"
+#include "../Render/ObjectDeformer.h"
 
 class SpyroAnimation : public Animation{
 private:

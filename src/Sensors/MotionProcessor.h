@@ -2,10 +2,10 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
-#include "..\Filter\QuaternionKalmanFilter.h"
-#include "..\Filter\VectorKalmanFilter.h"
-#include "..\Math\Rotation.h"
-#include "..\Math\Vector3D.h"
+#include "../Filter/QuaternionKalmanFilter.h"
+#include "../Filter/VectorKalmanFilter.h"
+#include "../Math/Rotation.h"
+#include "../Math/Vector3D.h"
 
 class MotionProcessor{
 private:

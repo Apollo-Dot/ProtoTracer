@@ -2,13 +2,13 @@
 
 #include "Animation.h"
 #include "KeyFrameTrack.h"
-#include "..\Morph\KaiborgV1.h"
-#include "..\Render\Scene.h"
-#include "..\Materials\GradientMaterial.h"
-#include "..\Materials\SimplexNoise.h"
-//#include "..\Flash\ImageSequences\Wave2.h"
-#include "..\Sensors\SerialInterpreter.h"
-#include "..\Filter\QuaternionKalmanFilter.h"
+#include "../Morph/KaiborgV1.h"
+#include "../Render/Scene.h"
+#include "../Materials/GradientMaterial.h"
+#include "../Materials/SimplexNoise.h"
+//#include "../Flash/ImageSequences/Wave2.h"
+#include "../Sensors/SerialInterpreter.h"
+#include "../Filter/QuaternionKalmanFilter.h"
 
 class KaiborgV1Animation : public Animation{
 private:

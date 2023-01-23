@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Material.h"
-#include "..\Shapes\Ellipse.h"
+#include "../Shapes/Ellipse.h"
 
 class MaterialMask : public Material{
 private:

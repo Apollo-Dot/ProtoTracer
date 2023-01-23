@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Materials\UVMap.h"
+#include "../Materials/UVMap.h"
 
 class CreeperTex : public UVMap{
 private:
@@ -19,8 +19,8 @@ const uint8_t CreeperTex::rgbMemory[] PROGMEM = {14,14,14,14,14,14,14,14,3,6,1,1
 const uint8_t CreeperTex::rgbColors[] PROGMEM = {104,204,88,165,213,157,94,166,84,37,156,32,210,217,208,41,94,34,131,209,118,68,170,57,74,200,58,5,13,5,193,219,188,73,92,69,70,124,60,2,155,0,0,0,0,82,148,79};
 
 
-#include "..\Render\Object3D.h"
-#include "..\Materials\SimpleMaterial.h"
+#include "../Render/Object3D.h"
+#include "../Materials/SimpleMaterial.h"
 
 class Creeper{
 private:

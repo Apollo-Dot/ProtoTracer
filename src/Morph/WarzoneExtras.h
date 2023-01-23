@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Arduino.h"
-#include "..\Math\Rotation.h"
+#include "../Math/Rotation.h"
 #include "Morph.h"
-#include "..\Materials\SimpleMaterial.h"
-#include "..\Render\IndexGroup.h"
-#include "..\Render\Object3D.h"
+#include "../Materials/SimpleMaterial.h"
+#include "../Render/IndexGroup.h"
+#include "../Render/Object3D.h"
 
 class WarzoneExtras{
 public:

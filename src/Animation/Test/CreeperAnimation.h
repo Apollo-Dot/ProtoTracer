@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Animation.h"
-#include "..\Objects\Cube.h"
-#include "..\Math\FunctionGenerator.h"
-#include "..\Objects\Creeper.h"
+#include "../Objects/Cube.h"
+#include "../Math/FunctionGenerator.h"
+#include "../Objects/Creeper.h"
 
 class CreeperAnimation : public Animation{
 private:

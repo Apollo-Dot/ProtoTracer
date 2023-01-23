@@ -1,10 +1,10 @@
 #pragma once
 
-#include "..\Math\Rotation.h"
+#include "../Math/Rotation.h"
 #include "Morph.h"
-#include "..\Materials\SimpleMaterial.h"
-#include "..\Render\IndexGroup.h"
-#include "..\Render\Object3D.h"
+#include "../Materials/SimpleMaterial.h"
+#include "../Render/IndexGroup.h"
+#include "../Render/Object3D.h"
 
 class KaiborgV1{
 public:

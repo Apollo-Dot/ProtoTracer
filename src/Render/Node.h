@@ -37,7 +37,7 @@ public:
     }
 
     void Expand(unsigned int newCount) {
-        //printf("expanding node, new capacity: %d\n", newCount);
+        //printf("expanding node, new capacity: %d/n", newCount);
         Triangle2D** tmp = entities;
         entities = new Triangle2D*[newCount];
         for (unsigned int i = 0; i < newCount; ++i) {
@@ -54,24 +54,24 @@ public:
     //Note: node bboxes are implicit so we dont store them, therefore they need to be supplied externally whenever needed
     bool Insert(Triangle2D* triangle, BoundingBox2D& bbox, unsigned int depth = 0) {
         if (!triangle->DidIntersect(bbox)) {
-            //printf("no intersection\n");
+            //printf("no intersection/n");
             return false;
         }
-        /* printf("inserting at depth: %d\n", depth);
-        printf("bbox: %.2f, %.2f, %.2f, %.2f\n", bbox.GetMinimum().X, bbox.GetMinimum().Y, bbox.GetMaximum().X, bbox.GetMaximum().Y);*/
+        /* printf("inserting at depth: %d/n", depth);
+        printf("bbox: %.2f, %.2f, %.2f, %.2f/n", bbox.GetMinimum().X, bbox.GetMinimum().Y, bbox.GetMaximum().X, bbox.GetMaximum().Y);*/
 
         if (count == capacity)
             Expand(capacity? 2 * capacity : maxEntities);
 
         entities[count] = triangle;
         ++count;
-        //printf("inserted, count: %d\n", count);
+        //printf("inserted, count: %d/n", count);
 
         return true;
     }
 
     void Subdivide(BoundingBox2D& bbox, unsigned int depth = 0) {
-        //printf("subdividing node at depth %d\n", depth);
+        //printf("subdividing node at depth %d/n", depth);
         if (depth == maxDepth)
             return;
 
@@ -99,11 +99,11 @@ public:
 
         bool canSubdiv = avgEntities < maxSubdivRatio * (float)count;
 
-        //printf("avg entities: %.2f, count: %d\n", avgEntities, count);
+        //printf("avg entities: %.2f, count: %d/n", avgEntities, count);
 
         if (!canSubdiv) {
-            /*printf("cant improve subdiv ratio, stopping subdiv\n");
-            printf("avg entities: %.2f, count: %d\n", avgEntities, count);*/
+            /*printf("cant improve subdiv ratio, stopping subdiv/n");
+            printf("avg entities: %.2f, count: %d/n", avgEntities, count);*/
             count = 0;
             return;
         }
@@ -123,7 +123,7 @@ public:
     /*
     void PrintStats(int& totalCount, BoundingBox2D& bbox) {
         if (IsLeaf()) {
-            //printf("count: %d\n", count);
+            //printf("count: %d/n", count);
             totalCount += count;
         }
         else {

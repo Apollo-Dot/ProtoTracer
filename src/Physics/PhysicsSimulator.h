@@ -1,9 +1,9 @@
 #pragma once
 
 #include "BoundaryMotionSimulator.h"
-#include "..\Render\Object3D.h"
-#include "..\Math\Quaternion.h"
-#include "..\Render\Scene.h"
+#include "../Render/Object3D.h"
+#include "../Math/Quaternion.h"
+#include "../Render/Scene.h"
 
 class PhysicsSimulator{
 private:

@@ -48,7 +48,7 @@ public:
         switch (character){
             case ':': return COLON; break;
             case '0': case '[': return N0; break;
-            case '1': case '\\': return N1; break;
+            case '1': case '//': return N1; break;
             case '2': case ']': return N2; break;
             case '3': case '^': return N3; break;
             case '4': case '_': return N4; break;

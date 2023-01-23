@@ -2,9 +2,9 @@
 
 #include <Arduino.h>
 #include "KeyFrame.h"
-#include "..\Math\Mathematics.h"
-#include "..\Controls\DampedSpring.h"
-#include "..\Filter\RampFilter.h"
+#include "../Math/Mathematics.h"
+#include "../Controls/DampedSpring.h"
+#include "../Filter/RampFilter.h"
 
 class EasyEaseInterpolation{
 public:

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "..\Materials\Material.h"
-#include "..\Math\Transform.h"
-#include "..\Math\Vector2D.h"
+#include "../Materials/Material.h"
+#include "../Math/Transform.h"
+#include "../Math/Vector2D.h"
 #include "Triangle3D.h"
 #include "BoundingBox2D.h"
 

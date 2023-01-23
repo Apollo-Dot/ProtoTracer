@@ -1,7 +1,7 @@
 #pragma once
 
-#include "..\Materials\Material.h"
-#include "..\Math\Transform.h"
+#include "../Materials/Material.h"
+#include "../Math/Transform.h"
 #include "TriangleGroup.h"
 
 class Object3D {

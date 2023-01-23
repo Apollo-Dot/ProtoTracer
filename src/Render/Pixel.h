@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Materials\RGBColor.h"
+#include "../Materials/RGBColor.h"
 
 typedef struct Pixel {
 	Vector2D* position;

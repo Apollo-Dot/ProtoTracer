@@ -5,11 +5,11 @@
 #include <ADC.h>
 #include <DMAChannel.h>
 #include <AnalogBufferDMA.h>
-#include "..\Math\Mathematics.h"
+#include "../Math/Mathematics.h"
 #include "MicrophoneSimple_MAX9814.h"
-#include "..\Filter\DerivativeFilter.h"
-#include "..\Filter\FFTFilter.h"
-#include "..\Filter\PeakDetection.h"
+#include "../Filter/DerivativeFilter.h"
+#include "../Filter/FFTFilter.h"
+#include "../Filter/PeakDetection.h"
 
 ADC *adc = new ADC();
 

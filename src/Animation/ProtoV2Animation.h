@@ -3,15 +3,15 @@
 #include "Animation.h"
 #include "KeyFrameTrack.h"
 #include "EasyEaseAnimator.h"
-#include "..\Morph\ProtoV2Morph.h"
-#include "..\Render\Scene.h"
-#include "..\Materials\GradientMaterial.h"
-#include "..\Materials\SimplexNoise.h"
-#include "..\Sensors\SerialInterpreter.h"
-#include "..\Filter\QuaternionKalmanFilter.h"
-#include "..\Math\FunctionGenerator.h"
-#include "..\Sensors\ButtonHandler.h"
-#include "..\Sensors\MicrophoneSimple.h"
+#include "../Morph/ProtoV2Morph.h"
+#include "../Render/Scene.h"
+#include "../Materials/GradientMaterial.h"
+#include "../Materials/SimplexNoise.h"
+#include "../Sensors/SerialInterpreter.h"
+#include "../Filter/QuaternionKalmanFilter.h"
+#include "../Math/FunctionGenerator.h"
+#include "../Sensors/ButtonHandler.h"
+#include "../Sensors/MicrophoneSimple.h"
 
 class ProtoV2Animation : public Animation{
 private:
@@ -164,7 +164,7 @@ public:
         eEA.Update();
 
         Serial.print(micRatio);
-        Serial.print('\t');
+        Serial.print('/t');
         Serial.println(mode);
 
         face.Update();

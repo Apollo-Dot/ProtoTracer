@@ -2,10 +2,10 @@
 
 #include <Arduino.h>
 #include "Characters.h"
-#include "..\Material.h"
-#include "..\..\Math\Mathematics.h"
-#include "..\..\Math\Rotation.h"
-#include "..\..\Math\Vector2D.h"
+#include "../Material.h"
+#include "../../Math/Mathematics.h"
+#include "../../Math/Rotation.h"
+#include "../../Math/Vector2D.h"
 
 //invert block for selection
 

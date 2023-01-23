@@ -1,8 +1,8 @@
 #pragma once
 
 #include <Arduino.h>
-#include "..\Filter\RunningAverageFilter.h"
-#include "..\Math\Mathematics.h"
+#include "../Filter/RunningAverageFilter.h"
+#include "../Math/Mathematics.h"
 
 class BouncePhysics{
 private:

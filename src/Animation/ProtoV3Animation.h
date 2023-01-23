@@ -2,13 +2,13 @@
 
 #include "Animation.h"
 #include "KeyFrameTrack.h"
-#include "..\Morph\ProtoV3.h"
-#include "..\Render\Scene.h"
-#include "..\Materials\GradientMaterial.h"
-#include "..\Materials\SimplexNoise.h"
-#include "..\Sensors\SerialInterpreter.h"
-#include "..\Filter\QuaternionKalmanFilter.h"
-#include "..\Signals\FunctionGenerator.h"
+#include "../Morph/ProtoV3.h"
+#include "../Render/Scene.h"
+#include "../Materials/GradientMaterial.h"
+#include "../Materials/SimplexNoise.h"
+#include "../Sensors/SerialInterpreter.h"
+#include "../Filter/QuaternionKalmanFilter.h"
+#include "../Signals/FunctionGenerator.h"
 
 class ProtoV3Animation : public Animation{
 private:

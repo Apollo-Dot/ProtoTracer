@@ -1,9 +1,9 @@
 #pragma once
 
-#include "..\Material.h"
-#include "..\GradientMaterial.h"
-#include "..\..\Filter\MaxFilter.h"
-#include "..\..\Filter\MinFilter.h"
+#include "../Material.h"
+#include "../GradientMaterial.h"
+#include "../../Filter/MaxFilter.h"
+#include "../../Filter/MinFilter.h"
 
 class Oscilloscope : public Material {
 private:

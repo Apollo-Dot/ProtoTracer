@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Materials\UVMap.h"
+#include "../Materials/UVMap.h"
 
 class BeeTex : public UVMap{
 private:
@@ -19,8 +19,8 @@ const uint8_t BeeTex::rgbMemory[] PROGMEM = {3,3,3,3,3,6,6,6,6,6,3,0,0,0,0,0,0,0
 const uint8_t BeeTex::rgbColors[] PROGMEM = {253,253,253,253,253,244,236,223,115,229,213,74,218,205,110,217,201,72,215,197,72,140,139,117,99,77,48,60,58,54,58,58,56,78,54,39,88,51,30,82,51,35,56,37,28,10,6,5};
 
 
-#include "..\Render\Object3D.h"
-#include "..\Materials\SimpleMaterial.h"
+#include "../Render/Object3D.h"
+#include "../Materials/SimpleMaterial.h"
 
 class Bee{
 private:

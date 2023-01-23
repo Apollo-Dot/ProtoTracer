@@ -1,7 +1,7 @@
 #pragma once
 
-#include "..\Math\Quaternion.h"
-#include "..\Materials\RGBColor.h"
+#include "../Math/Quaternion.h"
+#include "../Materials/RGBColor.h"
 #include <SerialTransfer.h>
 
 class SerialInterpreter{
@@ -66,7 +66,7 @@ public:
 
             receiveSize = dataTransfer.rxObj(e32Data, receiveSize);
             //Serial.println(GetColor().ToString());
-            //Serial.print("\t");
+            //Serial.print("/t");
         }
     }
 

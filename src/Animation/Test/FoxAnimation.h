@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Animation.h"
-#include "..\Math\FunctionGenerator.h"
-#include "..\Objects\Fox.h"
-#include "..\Materials\NormalMaterial.h"
+#include "../Math/FunctionGenerator.h"
+#include "../Objects/Fox.h"
+#include "../Materials/NormalMaterial.h"
 #include "KeyFrameTrack.h"
 
 class FoxAnimation : public Animation{
