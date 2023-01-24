@@ -10,6 +10,8 @@
 #include "../Menu/SingleButtonMenu.h"
 #include "../Sensors/APDS9960.h"
 
+#include "../Sensors/SerialInterpreterEsp32.h"
+
 #include "../Materials/Animated/SpectrumAnalyzer.h"
 #include "../Materials/Animated/RainbowNoise.h"
 #include "../Materials/Animated/RainbowSpiral.h"
@@ -168,6 +170,8 @@ private:
         backgroundMaterial.AddMaterialFrame(sA, offsetFaceSA);
     }
 
+    uint8_t prevMode = 0;
+
     void UpdateFFTVisemes(){
         if(Menu::UseMicrophone()){
             eEA.AddParameterFrame(NukudeFace::vrc_v_ss, MicrophoneFourierIT::GetCurrentMagnitude() / 2.0f);
@@ -223,6 +227,8 @@ public:
 
         Menu::SetSize(Vector2D(280, 60));
         Menu::SetPositionOffset(Vector2D(-40.0f, -30.0f));
+
+        SerialInterpreterEsp32::Initialize();
     }
 
     uint8_t GetAccentBrightness(){
@@ -246,6 +252,8 @@ public:
         float xOffset = fGenMatXMove.Update();
         float yOffset = fGenMatYMove.Update();
         
+        SerialInterpreterEsp32::Update();
+
         Menu::Update(ratio);
 
         SetMaterialColor();
@@ -258,6 +266,16 @@ public:
         sA.SetHueAngle(ratio * 360.0f * 4.0f);
         sA.SetMirrorYState(Menu::MirrorSpectrumAnalyzer());
         sA.SetFlipYState(!Menu::MirrorSpectrumAnalyzer());
+
+        if (SerialInterpreterEsp32::GetUse())
+        {
+            Menu::SetFaceState(SerialInterpreterEsp32::GetMode());
+        }
+
+        if(prevMode != mode){
+            SerialInterpreterEsp32::SetCurMode(mode);
+            prevMode = mode;
+        }
         
         UpdateFFTVisemes();
 

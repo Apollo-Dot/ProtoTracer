@@ -102,6 +102,12 @@ public:
     static uint8_t GetMenuValue(uint8_t menu){
         return currentValue[menu];
     }
+
+    static void SetMenuValue(uint8_t menu, uint8_t value){
+        if(menu >= menuCount) return;
+
+        currentValue[menu] = value;
+    }
     
     static uint8_t GetCurrentMenu(){
         return currentMenu;
