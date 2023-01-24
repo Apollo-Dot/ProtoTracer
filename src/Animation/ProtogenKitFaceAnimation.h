@@ -24,6 +24,7 @@
 
 class ProtogenKitFaceAnimation : public Animation<2> {
 private:
+    static const uint8_t faceCount = 8;
     NukudeFace pM;
     Background background;
     EasyEaseAnimator<20> eEA = EasyEaseAnimator<20>(EasyEaseInterpolation::Overshoot, 1.0f, 0.35f);
@@ -223,6 +224,14 @@ public:
         Menu::SetSize(Vector2D(280, 60));
         Menu::SetPositionOffset(Vector2D(-40.0f, -30.0f));
     }
+
+    uint8_t GetAccentBrightness(){
+        return Menu::GetAccentBrightness();
+    };
+
+    uint8_t GetBrightness(){
+        return Menu::GetBrightness();
+    };
 
     void FadeIn(float stepRatio) override {}
     void FadeOut(float stepRatio) override {}

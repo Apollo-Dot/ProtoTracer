@@ -14,7 +14,7 @@ private:
     const unsigned int pixelCount;
     BoundingBox2D bounds;
 	Vector2D** pixelPositions;
-  	RGBColor** pixelColors;
+    RGBColor** pixelColors;
 
     bool isRectangular = false;
     uint16_t rowCount;
