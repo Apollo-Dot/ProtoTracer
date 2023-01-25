@@ -268,7 +268,7 @@ public:
     }
 
     static void SetFaceState(uint8_t faceState){
-        Menu::faceState = faceState;
+        MenuHandler<menuCount>::SetMenuValue(Faces, faceState);
     }
 
     static uint8_t GetFaceState(){

@@ -267,7 +267,7 @@ public:
         sA.SetMirrorYState(Menu::MirrorSpectrumAnalyzer());
         sA.SetFlipYState(!Menu::MirrorSpectrumAnalyzer());
 
-        if (SerialInterpreterEsp32::GetUse())
+        if (SerialInterpreterEsp32::GetUse() == true)
         {
             Menu::SetFaceState(SerialInterpreterEsp32::GetMode());
         }

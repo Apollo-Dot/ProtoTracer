@@ -50,6 +50,10 @@ public:
         sR = sR < 0 ? 0 : sR;
         sG = sG < 0 ? 0 : sG;
         sB = sB < 0 ? 0 : sB;
+
+        R = sR;
+        G = sG;
+        B = sB;
         
         return RGBColor(sR, sG, sB);
     }
