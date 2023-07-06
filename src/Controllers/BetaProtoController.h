@@ -17,31 +17,24 @@ class BetaProtoController : public Controller {
 private:
     CameraLayout cameraLayout = CameraLayout(CameraLayout::ZForward, CameraLayout::YUp);
 
-    Transform camRghtFrntTransform = Transform(Vector3D(0.0f, 27.0f, 0.0f), Vector3D(1.0f, 0, -500.0f+14.0f), Vector3D(1, 1, 1));
-    Transform camLeftFrntTransform = Transform(Vector3D(0.0f, -27.0f, 0.0f), Vector3D(1.0f, 0, -500.0f-14.0f), Vector3D(1, 1, 1));
-    Transform camRghtRearTransform = Transform(Vector3D(-5.631f, -1.508f, 164.057f), Vector3D(460.0f, 290.0f, -500.0f+111.0f), Vector3D(1, 1, 1));
-    Transform camLeftRearTransform = Transform(Vector3D(5.631f, 1.508f, 164.057f), Vector3D(460.0f, 290.0f, -500.0f-111.0f), Vector3D(1, 1, 1));
-    Transform camRghtChinTransform = Transform(Vector3D(52.014f, 9.825f, 28.423f), Vector3D(19.0f + 30.0f, 30.0f, -500.0f-19.0f), Vector3D(1, 1, 1));
-    Transform camLeftChinTransform = Transform(Vector3D(-163.947f, -52.151f, 130.883f), Vector3D(145.0f + 30.0f, 30.0f, -500.0f+81.0f), Vector3D(1, 1, 1));
+    Transform camRghtFrntTransform = Transform(Vector3D(0.0f, 0.0f, 0.0f), Vector3D(0.0f, 0, -500.0f), Vector3D(1, 1, 1));
+    Transform camRghtRearTransform = Transform(Vector3D(0.0f, 0.0f, 159.0f), Vector3D(387.0f, 190.0f, -500.0f), Vector3D(1, 1, 1));
 
-    PixelGroup camRghtFrntPixels = PixelGroup(KaiborgV1Pixels, 571, PixelGroup::ZEROTOMAX);
-    PixelGroup camLeftFrntPixels = PixelGroup(KaiborgV1Pixels, 571, PixelGroup::MAXTOZERO);
-    PixelGroup camRghtRearPixels = PixelGroup(KaiborgV1Pixels, 571, PixelGroup::ZEROTOMAX);
-    PixelGroup camLeftRearPixels = PixelGroup(KaiborgV1Pixels, 571, PixelGroup::MAXTOZERO);
-    PixelGroup camRghtChinPixels = PixelGroup(ProtoDRMini, 89);
-    PixelGroup camLeftChinPixels = PixelGroup(ProtoDRMini, 89);
+    PixelGroup<571> camRghtFrntPixels = PixelGroup<571>(KaiborgV1Pixels, PixelGroup<571>::ZEROTOMAX);
+    PixelGroup<571> camRghtRearPixels = PixelGroup<571>(KaiborgV1Pixels, PixelGroup<571>::ZEROTOMAX);
 
-    Camera camRghtFrnt = Camera(&camRghtFrntTransform, &cameraLayout, &camRghtFrntPixels);
-    Camera camLeftFrnt = Camera(&camLeftFrntTransform, &cameraLayout, &camLeftFrntPixels);
-    Camera camRghtRear = Camera(&camRghtRearTransform, &cameraLayout, &camRghtRearPixels);
-    Camera camLeftRear = Camera(&camLeftRearTransform, &cameraLayout, &camLeftRearPixels);
-    Camera camRghtChin = Camera(&camRghtChinTransform, &cameraLayout, &camRghtChinPixels);
-    Camera camLeftChin = Camera(&camLeftChinTransform, &cameraLayout, &camLeftChinPixels);
+    Camera<571> camRghtFrnt = Camera<571>(&camRghtFrntTransform, &cameraLayout, &camRghtFrntPixels);
+    Camera<571> camRghtRear = Camera<571>(&camRghtRearTransform, &cameraLayout, &camRghtRearPixels);
 
-    Camera* cameras[6] = { &camRghtFrnt, &camLeftFrnt, &camRghtRear, &camLeftRear, &camRghtChin, &camLeftChin };
+    CameraBase* cameras[2] = { &camRghtFrnt, &camRghtRear };
+    uint8_t maxBrightness;
+    uint8_t maxAccentBrightness;
 
 public:
-    BetaProtoController(uint8_t maxBrightness) : Controller(cameras, 6, maxBrightness, 0){}
+    BetaProtoController(uint8_t maxBrightness, uint8_t maxAccentBrightness) : Controller(cameras, 2, maxBrightness, maxAccentBrightness){
+        this->maxBrightness = maxBrightness;
+        this->maxAccentBrightness = maxAccentBrightness;
+    }
 
     void Initialize() override{
         leds.begin();
@@ -49,42 +42,38 @@ public:
     }
 
     void Display() override {
-        for (int i = 0; i < 571; i++){
-            camLeftFrntPixels.GetPixel(i)->Color = camLeftFrntPixels.GetPixel(i)->Color.Scale(brightness);
-            camRghtFrntPixels.GetPixel(i)->Color = camRghtFrntPixels.GetPixel(i)->Color.Scale(brightness);
+        int offset, inverseOffset;
 
-            camLeftRearPixels.GetPixel(i)->Color = camLeftRearPixels.GetPixel(i)->Color.Scale(brightness);
-            camRghtRearPixels.GetPixel(i)->Color = camRghtRearPixels.GetPixel(i)->Color.Scale(brightness);
-            
-            if(i < 89){
-                camRghtChinPixels.GetPixel(i)->Color = camRghtChinPixels.GetPixel(i)->Color.Scale(brightness * 2);
-                camLeftChinPixels.GetPixel(i)->Color = camLeftChinPixels.GetPixel(i)->Color.Scale(brightness * 2);
-            }
+        for (int i = 0; i < 571; i++){
+            *camRghtFrntPixels.GetColor(i) = camRghtFrntPixels.GetColor(i)->Scale(brightness);
+
+            *camRghtRearPixels.GetColor(i) = camRghtRearPixels.GetColor(i)->Scale(accentBrightness);
         }
 
         for (int i = 0; i < 571; i++) {
             if (i < 346){
+                offset = i + 225;
+                inverseOffset = 570 - offset;
+
                 //Rear Panels
-                leds.setPixel(i + 346 * 7, camLeftRearPixels.GetPixel(i + 225)->Color.R, camLeftRearPixels.GetPixel(i + 225)->Color.G, camLeftRearPixels.GetPixel(i + 225)->Color.B);//Pin 7
-                leds.setPixel(i + 346 * 6, camRghtRearPixels.GetPixel(i)->Color.R, camRghtRearPixels.GetPixel(i)->Color.G, camRghtRearPixels.GetPixel(i)->Color.B);//Pin 8
+                leds.setPixel(i + 346 * 0, camRghtRearPixels.GetColor(inverseOffset)->R, camRghtRearPixels.GetColor(inverseOffset)->G, camRghtRearPixels.GetColor(inverseOffset)->B);//LEFT
+                leds.setPixel(i + 346 * 1, camRghtRearPixels.GetColor(i)->R, camRghtRearPixels.GetColor(i)->G, camRghtRearPixels.GetColor(i)->B);//Pin 8
 
                 //Front Panels
-                leds.setPixel(i + 346 * 3, camLeftFrntPixels.GetPixel(i + 225)->Color.R, camLeftFrntPixels.GetPixel(i + 225)->Color.G, camLeftFrntPixels.GetPixel(i + 225)->Color.B);//Pin 7
-                leds.setPixel(i + 346 * 2, camRghtFrntPixels.GetPixel(i)->Color.R, camRghtFrntPixels.GetPixel(i)->Color.G, camRghtFrntPixels.GetPixel(i)->Color.B);//Pin 8
+                leds.setPixel(i + 346 * 4, camRghtFrntPixels.GetColor(inverseOffset)->R, camRghtFrntPixels.GetColor(inverseOffset)->G, camRghtFrntPixels.GetColor(inverseOffset)->B);//Pin 7
+                leds.setPixel(i + 346 * 5, camRghtFrntPixels.GetColor(i)->R, camRghtFrntPixels.GetColor(i)->G, camRghtFrntPixels.GetColor(i)->B);//Pin 8
             }
             else{
+                offset = i - 346;
+                inverseOffset = 570 - offset;
+
                 //Rear Panels
-                leds.setPixel(i + 346 * 5 - 346, camLeftRearPixels.GetPixel(i - 346)->Color.R, camLeftRearPixels.GetPixel(i - 346)->Color.G, camLeftRearPixels.GetPixel(i - 346)->Color.B);//Pin 8
-                leds.setPixel(i + 346 * 4 - 346, camRghtRearPixels.GetPixel(i)->Color.R, camRghtRearPixels.GetPixel(i)->Color.G, camRghtRearPixels.GetPixel(i)->Color.B);//Pin 8
+                leds.setPixel(i + 346 * 2 - 346, camRghtRearPixels.GetColor(inverseOffset)->R, camRghtRearPixels.GetColor(inverseOffset)->G, camRghtRearPixels.GetColor(inverseOffset)->B);//Pin 8
+                leds.setPixel(i + 346 * 3 - 346, camRghtRearPixels.GetColor(i)->R, camRghtRearPixels.GetColor(i)->G, camRghtRearPixels.GetColor(i)->B);//Pin 8
 
                 //Front Panels
-                leds.setPixel(i + 346 * 1 - 346, camLeftFrntPixels.GetPixel(i - 346)->Color.R, camLeftFrntPixels.GetPixel(i - 346)->Color.G, camLeftFrntPixels.GetPixel(i - 346)->Color.B);//Pin 8
-                leds.setPixel(i + 346 * 0 - 346, camRghtFrntPixels.GetPixel(i)->Color.R, camRghtFrntPixels.GetPixel(i)->Color.G, camRghtFrntPixels.GetPixel(i)->Color.B);//Pin 8
-            }
-
-            if (i < 89){
-                leds.setPixel(i + 346 * 1 + 225, camLeftChinPixels.GetPixel(i)->Color.R, camLeftChinPixels.GetPixel(i)->Color.G, camLeftChinPixels.GetPixel(i)->Color.B);//Pin 8
-                leds.setPixel(i + 346 * 0 + 225, camRghtChinPixels.GetPixel(i)->Color.R, camRghtChinPixels.GetPixel(i)->Color.G, camRghtChinPixels.GetPixel(i)->Color.B);//Pin 8
+                leds.setPixel(i + 346 * 6 - 346, camRghtFrntPixels.GetColor(inverseOffset)->R, camRghtFrntPixels.GetColor(inverseOffset)->G, camRghtFrntPixels.GetColor(inverseOffset)->B);//Pin 8
+                leds.setPixel(i + 346 * 7 - 346, camRghtFrntPixels.GetColor(i)->R, camRghtFrntPixels.GetColor(i)->G, camRghtFrntPixels.GetColor(i)->B);//Pin 8
             }
         }
 

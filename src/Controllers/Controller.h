@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../Render/Camera.h"
+#include "..\Render\CameraBase.h"
 
 class Controller {
 private:
     const float softStart = 3000000;//microseconds
     long previousTime;
-    Camera** cameras;
+    CameraBase** cameras;
     uint8_t count = 0;
     float renderTime = 0.0f;
     uint8_t maxBrightness;
@@ -29,7 +29,7 @@ protected:
     uint8_t brightness;
     uint8_t accentBrightness;
 
-    Controller(Camera** cameras, uint8_t count, uint8_t maxBrightness, uint8_t maxAccentBrightness){
+    Controller(CameraBase** cameras, uint8_t count, uint8_t maxBrightness, uint8_t maxAccentBrightness){
         this->cameras = cameras;
         this->count = count;
         this->maxBrightness = maxBrightness;
@@ -38,7 +38,7 @@ protected:
     }
 
 public:
-    Camera** GetCameras(){
+    CameraBase** GetCameras(){
         return cameras;
     }
 
@@ -53,7 +53,12 @@ public:
 
         for (int i = 0; i < count; i++){
             cameras[i]->Rasterize(scene);
+
+            if(scene->UseEffect()){
+                scene->GetEffect()->ApplyEffect(cameras[i]->GetPixelGroup());
+            }
         }
+        
 
         renderTime = ((float)(micros() - previousTime)) / 1000000.0f;
     }
@@ -64,6 +69,10 @@ public:
         UpdateBrightness();
 
         cameras[cameraNum]->Rasterize(scene);
+
+        if(scene->UseEffect()){
+            scene->GetEffect()->ApplyEffect(cameras[cameraNum]->GetPixelGroup());
+        }
 
         renderTime = ((float)(micros() - previousTime)) / 1000000.0f;
     }

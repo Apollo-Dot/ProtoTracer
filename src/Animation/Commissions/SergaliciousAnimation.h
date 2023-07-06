@@ -1,5 +1,6 @@
 #pragma once
 
+<<<<<<< HEAD
 #include "../Animation.h"
 #include "../AnimationTracks/BlinkTrack.h"
 #include "../KeyFrameTrack.h"
@@ -21,6 +22,29 @@
 #include "../../Materials/Animated/AudioReactiveGradient.h"
 #include "../../Materials/Animated/Oscilloscope.h"
 #include "../../Materials/MaterialAnimator.h"
+=======
+#include "..\Animation.h"
+#include "..\AnimationTracks\BlinkTrack.h"
+#include "..\KeyFrameTrack.h"
+#include "..\EasyEaseAnimator.h"
+#include "..\..\Objects\Background.h"
+#include "..\..\Objects\LEDStripBackground.h"
+#include "..\..\Morph\Commissions\SergaliciousFace.h"
+#include "..\..\Render\Scene.h"
+#include "..\..\Menu\SingleButtonMenu.h"
+#include "..\..\Signals\FunctionGenerator.h"
+#include "..\..\Signals\FFTVoiceDetection.h"
+#include "..\..\Sensors\APDS9960.h"
+#include "..\..\Sensors\MicrophoneFourier_DMA.h"
+#include "..\..\Render\ObjectAlign.h"
+
+#include "..\..\Materials\Animated\RainbowNoise.h"
+#include "..\..\Materials\Animated\RainbowSpiral.h"
+#include "..\..\Materials\Animated\SpectrumAnalyzer.h"
+#include "..\..\Materials\Animated\AudioReactiveGradient.h"
+#include "..\..\Materials\Animated\Oscilloscope.h"
+#include "..\..\Materials\MaterialAnimator.h"
+>>>>>>> upstream/main
 
 
 
@@ -73,7 +97,7 @@ private:
 
     FunctionGenerator fGenLoadingRamp = FunctionGenerator(FunctionGenerator::Sine, 0.0f, 1.0f, 8.3f);
 
-    BoopSensor boop;
+    APDS9960 boop;
 
     FFTVoiceDetection<128> voiceDetection;
 
@@ -250,11 +274,11 @@ private:
                 voiceDetection.Update(MicrophoneFourier::GetFourierFiltered(), MicrophoneFourier::GetSampleRate());
         
                 eEA.AddParameterFrame(SergaliciousFace::vrc_v_ee, voiceDetection.GetViseme(voiceDetection.EE));
-                eEA.AddParameterFrame(SergaliciousFace::vrc_v_oo, voiceDetection.GetViseme(voiceDetection.AH));
-                eEA.AddParameterFrame(SergaliciousFace::vrc_v_oo, voiceDetection.GetViseme(voiceDetection.UH));
-                eEA.AddParameterFrame(SergaliciousFace::vrc_v_aa, voiceDetection.GetViseme(voiceDetection.AR));
-                eEA.AddParameterFrame(SergaliciousFace::vrc_v_oo, voiceDetection.GetViseme(voiceDetection.ER));
-                eEA.AddParameterFrame(SergaliciousFace::vrc_v_aa, voiceDetection.GetViseme(voiceDetection.AH));
+                //eEA.AddParameterFrame(SergaliciousFace::vrc_v_oo, voiceDetection.GetViseme(voiceDetection.AH));
+                //eEA.AddParameterFrame(SergaliciousFace::vrc_v_oo, voiceDetection.GetViseme(voiceDetection.UH));
+                //eEA.AddParameterFrame(SergaliciousFace::vrc_v_aa, voiceDetection.GetViseme(voiceDetection.AR));
+                //eEA.AddParameterFrame(SergaliciousFace::vrc_v_oo, voiceDetection.GetViseme(voiceDetection.ER));
+                //eEA.AddParameterFrame(SergaliciousFace::vrc_v_aa, voiceDetection.GetViseme(voiceDetection.AH));
                 eEA.AddParameterFrame(SergaliciousFace::vrc_v_oo, voiceDetection.GetViseme(voiceDetection.OO));
             }
         }
@@ -294,7 +318,7 @@ public:
 
         boop.Initialize(5);
 
-        MicrophoneFourier::Initialize(A0, 8000, 50.0f, 120.0f);//8KHz sample rate, 50dB min, 120dB max
+        MicrophoneFourier::Initialize(15, 8000, 50.0f, 120.0f);//8KHz sample rate, 50dB min, 120dB max
         Menu::Initialize(11, 20, 500);//13 is number of faces
 
         gradientMat.SetRotationAngle(45);
@@ -303,6 +327,14 @@ public:
         objA.SetMirrorX(true);
         //objA.SetMirrorY(true);
     }
+
+    uint8_t GetAccentBrightness(){
+        return Menu::GetAccentBrightness();
+    };
+
+    uint8_t GetBrightness(){
+        return Menu::GetBrightness();
+    };
 
     void FadeIn(float stepRatio) override {}
     void FadeOut(float stepRatio) override {}
@@ -317,7 +349,7 @@ public:
         float xOffset = fGenMatXMove.Update();
         float yOffset = fGenMatYMove.Update();
         
-        Menu::Update();
+        Menu::Update(ratio);
 
         SetMaterialColor();
 
