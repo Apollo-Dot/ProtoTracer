@@ -75,7 +75,7 @@ private:
         MenuHandler<menuCount>::SetDefaultValue(MicLevel, 5);
         MenuHandler<menuCount>::SetDefaultValue(BoopSensor, 1);
         MenuHandler<menuCount>::SetDefaultValue(SpectrumMirror, 0);
-        MenuHandler<menuCount>::SetDefaultValue(FaceSize, 0);
+        MenuHandler<menuCount>::SetDefaultValue(FaceSize, 9);
         MenuHandler<menuCount>::SetDefaultValue(Color, 0);
 
         MenuHandler<menuCount>::SetInitialized();

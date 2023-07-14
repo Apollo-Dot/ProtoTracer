@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Screenspace\Effect.h"
+#include "../Screenspace/Effect.h"
 #include "Object3D.h"
 
 class Scene {

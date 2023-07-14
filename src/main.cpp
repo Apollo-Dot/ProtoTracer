@@ -6,6 +6,7 @@
 //#define HUB75
 //#define HUB75Split
 #define WS35
+//#define OLDWS35
 //#define ESP32HUB75
 
 //#define PRINTINFO
@@ -48,13 +49,18 @@ ProtogenHUB75Animation animation = ProtogenHUB75Animation();
 SmartMatrixHUB75Split controller = SmartMatrixHUB75Split(maxBrightness, maxAccentBrightness);
 ProtogenHUB75AnimationSplit animation = ProtogenHUB75AnimationSplit();
 #elif defined(HUB75Square)
-#include "Controllers\SmartMatrixHUB75Square.h"
-#include "Animation\ClockAnimation.h"
+#include "Controllers/SmartMatrixHUB75Square.h"
+#include "Animation/ClockAnimation.h"
 SmartMatrixHUB75Split controller = SmartMatrixHUB75Split(maxBrightness, maxAccentBrightness);
 ClockAnimation animation = ClockAnimation();
 #elif defined(WS35)
-#include "Controllers\KaiborgV1D1Controller.h"
-#include "Animation\ProtogenKitFaceAnimation.h"
+#include "Controllers/KaiborgV1D1Controller.h"
+#include "Animation/ProtogenKitFaceAnimation.h"
+KaiborgV1D1Controller controller = KaiborgV1D1Controller(maxBrightness);
+ProtogenKitFaceAnimation animation = ProtogenKitFaceAnimation();
+#elif defined(OLDWS35)
+#include "Controllers/KaiborgV1D1Controller.h"
+#include "Animation/OldProtogenKitFaceAnimation.h"
 KaiborgV1D1Controller controller = KaiborgV1D1Controller(maxBrightness);
 ProtogenKitFaceAnimation animation = ProtogenKitFaceAnimation();
 #elif defined(WS35SPLIT)
@@ -70,20 +76,20 @@ ESP32DevKitV1 controller = ESP32DevKitV1(maxBrightness);
 ESP32Clock animation = ESP32Clock();
 #elif defined(CUSTOMHUB75)
 #define HUB75
-#include "Controllers\SmartMatrixHUB75.h"
-#include "Animation\Commissions\BasilGardenAnimation.h"
+#include "Controllers/SmartMatrixHUB75.h"
+#include "Animation/Commissions/BasilGardenAnimation.h"
 SmartMatrixHUB75 controller = SmartMatrixHUB75(maxBrightness, maxAccentBrightness);
 BasilGardenAnimation animation = BasilGardenAnimation();
 #elif defined(CUSTOMWS35)
 #define WS35
-#include "Controllers\KaiborgV1D1Controller.h"
-#include "Animation\Commissions\WarzoneAnimationV2.h"
+#include "Controllers/KaiborgV1D1Controller.h"
+#include "Animation/Commissions/WarzoneAnimationV2.h"
 KaiborgV1D1Controller controller = KaiborgV1D1Controller(maxBrightness);
 Warzone2Animation animation = Warzone2Animation();
 #elif defined(CUSTOMBETAWS35)
 #define BETAWS35
-#include "Controllers\BetaProtoController.h"
-#include "Animation\BetaAnimation.h"
+#include "Controllers/BetaProtoController.h"
+#include "Animation/BetaAnimation.h"
 BetaProtoController controller = BetaProtoController(maxBrightness, maxAccentBrightness);
 BetaAnimation animation = BetaAnimation();
 #else
@@ -163,6 +169,12 @@ void loop() {
     animation.UpdateTime(ratio);
     controller.Render(animation.GetScene());
     #elif defined(WS35)
+    controller.SetAccentBrightness(animation.GetAccentBrightness() * 25 + 5);
+    controller.SetBrightness(powf(animation.GetBrightness() + 3, 2) / 3);
+
+    animation.UpdateTime(ratio);
+    controller.Render(animation.GetScene());
+    #elif defined(OLDWS35)
     controller.SetAccentBrightness(animation.GetAccentBrightness() * 25 + 5);
     controller.SetBrightness(powf(animation.GetBrightness() + 3, 2) / 3);
 

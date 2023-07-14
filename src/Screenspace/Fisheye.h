@@ -2,7 +2,7 @@
 
 #include "Effect.h"
 #include "Arduino.h"
-#include "..\Signals\FunctionGenerator.h"
+#include "../Signals/FunctionGenerator.h"
 
 class Fisheye: public Effect {
 private:

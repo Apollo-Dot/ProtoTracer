@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Effect.h"
-#include "..\Signals\FunctionGenerator.h"
+#include "../Signals/FunctionGenerator.h"
 
 class PhaseOffsetR : public Effect {
 private:

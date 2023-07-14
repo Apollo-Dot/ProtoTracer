@@ -2,7 +2,7 @@
 
 #include "Effect.h"
 #include "Arduino.h"
-#include "..\Signals\FunctionGenerator.h"
+#include "../Signals/FunctionGenerator.h"
 
 class Magnet: public Effect {
 private:

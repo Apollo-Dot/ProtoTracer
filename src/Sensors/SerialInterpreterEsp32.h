@@ -1,44 +1,64 @@
 #pragma once
 
 #include "../Materials/RGBColor.h"
+#include "../Menu/SingleButtonMenu.h"
 #include <SerialTransfer.h>
 
-class SerialInterpreterEsp32{
+class SerialInterpreterEsp32
+{
 private:
     static SerialTransfer dataTransfer;
 
-    static struct ESP32Data {
-        uint16_t r;
-        uint16_t g;
-        uint16_t b;
-        uint8_t mode;
-        uint8_t curMode;
+    static struct __attribute__((__packed__)) ESP32Data
+    {
+        uint8_t faceState;
+        uint8_t brightness;
+        uint8_t accentBrightness;
+        uint8_t useMic;
+        uint8_t micLevel;
+        uint8_t useBoop;
+        uint8_t spectrumMirror;
+        uint8_t faceSize;
+        uint8_t faceColor;
         uint8_t use;
     } e32DataTX, e32DataRX;
 
 public:
-
-    static void Initialize(){
+    static void Initialize()
+    {
         Serial4.begin(9600);
-        dataTransfer.begin(Serial4, true);//_debug = true
+        dataTransfer.begin(Serial4, true); //_debug = true
+        SetCurAll();
     }
 
-    static RGBColor GetColor(){
-        return RGBColor(e32DataRX.r, e32DataRX.g, e32DataRX.b);
+    static uint8_t GetMode()
+    {
+        return e32DataRX.faceState;
     }
 
-    static uint8_t GetMode(){
-        return e32DataRX.mode;
-    }
-
-    static void SetCurMode(uint8_t curMode){
-        e32DataTX.curMode = curMode;
+    static void SetCurMode(uint8_t curMode)
+    {
+        e32DataTX.faceState = curMode;
         SendData();
     }
 
-    static bool GetUse(){
+    static void SetCurAll(){
+        e32DataTX.faceState = Menu::GetFaceState();
+        e32DataTX.brightness = Menu::GetBrightness();
+        e32DataTX.accentBrightness = Menu::GetAccentBrightness();
+        e32DataTX.useMic = Menu::UseMicrophone();
+        e32DataTX.micLevel = Menu::GetMicLevel();
+        e32DataTX.useBoop = Menu::UseBoopSensor();
+        e32DataTX.spectrumMirror = Menu::MirrorSpectrumAnalyzer();
+        e32DataTX.faceSize = Menu::GetFaceSize();
+        e32DataTX.faceColor = Menu::GetFaceColor();
+    }
+
+    static bool GetUse()
+    {
         if (e32DataRX.use == 1)
         {
+            SendData();
             return true;
         }
         else
@@ -47,24 +67,20 @@ public:
         }
     }
 
-    static void Update(){
-        if(dataTransfer.available()){
-
+    static void Update()
+    {
+        if (dataTransfer.available())
+        {
             dataTransfer.rxObj(e32DataRX);
-
-            Serial.print(GetUse());
-            Serial.println(GetMode());
-            //Serial.println(GetColor().ToString());
-            //Serial.print("\t");
         }
     }
 
-    static void SendData(){
-        uint16_t sendSize = 0;
-        sendSize = dataTransfer.txObj(e32DataTX, sendSize);
-        dataTransfer.sendData(sendSize);
+    static void SendData()
+    {
+        //uint16_t sendSize = 0;
+        //sendSize = dataTransfer.txObj(e32DataTX, sendSize);
+        dataTransfer.sendDatum(e32DataTX);
     }
-
 };
 
 SerialTransfer SerialInterpreterEsp32::dataTransfer;

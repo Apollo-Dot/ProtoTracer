@@ -18,14 +18,14 @@
 #include "../../Materials/Animated/AudioReactiveGradient.h"
 #include "../../Materials/Animated/Oscilloscope.h"
 =======
-#include "..\..\Materials\Animated\RainbowNoise.h"
-#include "..\..\Materials\Animated\RainbowSpiral.h"
-#include "..\..\Materials\Animated\SpectrumAnalyzer.h"
-#include "..\..\Materials\Animated\AudioReactiveGradient.h"
-#include "..\..\Materials\Animated\Oscilloscope.h"
-#include "..\..\Materials\MaterialMask.h"
-#include "..\..\Shapes\Circle.h"
-#include "..\..\Shapes\Rectangle.h"
+#include "../../Materials/Animated/RainbowNoise.h"
+#include "../../Materials/Animated/RainbowSpiral.h"
+#include "../../Materials/Animated/SpectrumAnalyzer.h"
+#include "../../Materials/Animated/AudioReactiveGradient.h"
+#include "../../Materials/Animated/Oscilloscope.h"
+#include "../../Materials/MaterialMask.h"
+#include "../../Shapes/Circle.h"
+#include "../../Shapes/Rectangle.h"
 >>>>>>> upstream/main
 
 #include "../../Materials/MaterialAnimator.h"

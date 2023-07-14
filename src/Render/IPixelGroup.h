@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Materials\RGBColor.h"
+#include "../Materials/RGBColor.h"
 #include "BoundingBox2D.h"
 
 class IPixelGroup {

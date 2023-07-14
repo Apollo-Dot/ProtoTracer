@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Render\IPixelGroup.h"
+#include "../Render/IPixelGroup.h"
 
 class Effect {
 protected:

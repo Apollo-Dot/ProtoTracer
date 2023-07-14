@@ -28,17 +28,17 @@
 
 #include "../Render/ObjectAlign.h"
 
-#include "..\Screenspace\GlitchX.h"
-#include "..\Screenspace\Fisheye.h"
-#include "..\Screenspace\HorizontalBlur.h"
-#include "..\Screenspace\PhaseOffsetX.h"
-#include "..\Screenspace\PhaseOffsetY.h"
-#include "..\Screenspace\PhaseOffsetR.h"
-#include "..\Screenspace\Magnet.h"
-#include "..\Screenspace\Overflow.h"
-#include "..\Screenspace\RadialBlur.h"
-#include "..\Screenspace\ShiftR.h"
-#include "..\Screenspace\VerticalBlur.h"
+#include "../Screenspace/GlitchX.h"
+#include "../Screenspace/Fisheye.h"
+#include "../Screenspace/HorizontalBlur.h"
+#include "../Screenspace/PhaseOffsetX.h"
+#include "../Screenspace/PhaseOffsetY.h"
+#include "../Screenspace/PhaseOffsetR.h"
+#include "../Screenspace/Magnet.h"
+#include "../Screenspace/Overflow.h"
+#include "../Screenspace/RadialBlur.h"
+#include "../Screenspace/ShiftR.h"
+#include "../Screenspace/VerticalBlur.h"
 
 class ProtogenHUB75Animation : public Animation<3> {
 private:
